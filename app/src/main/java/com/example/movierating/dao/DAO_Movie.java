@@ -1,4 +1,4 @@
-package com.example.ungdungchamdiemphim.dao;
+package com.example.movierating.dao;
 
 public class DAO_Movie {
 }

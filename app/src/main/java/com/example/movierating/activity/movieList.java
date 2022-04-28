@@ -1,4 +1,4 @@
-package com.example.ungdungchamdiemphim.activity;
+package com.example.movierating.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
