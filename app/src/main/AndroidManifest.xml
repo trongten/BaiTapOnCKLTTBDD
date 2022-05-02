@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieRating">
         <activity
+            android:name=".activity.itemMovieList"
+            android:exported="false" />
+        <activity
             android:name=".activity.movieList"
             android:exported="true">
             <intent-filter>

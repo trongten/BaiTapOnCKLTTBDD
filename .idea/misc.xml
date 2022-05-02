@@ -3,7 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/trong/AndroidStudioProjects/MovieRating/app/src/main/res/drawable/sear.xml" value="0.1845" />
+        <entry key="..\:/Users/trong/AndroidStudioProjects/MovieRating/app/src/main/res/layout/activity_item_movie_list.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/trong/AndroidStudioProjects/MovieRating/app/src/main/res/layout/activity_item_trailer_list.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/trong/AndroidStudioProjects/MovieRating/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/trong/AndroidStudioProjects/MovieRating/app/src/main/res/layout/activity_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/trong/AndroidStudioProjects/MovieRating/app/src/main/res/layout/activity_movie_list.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/trong/AndroidStudioProjects/MovieRating/app/src/main/res/layout/fragment_item_list.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/trong/AndroidStudioProjects/MovieRating/app/src/main/res/layout/fragment_movie_list.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/trong/AndroidStudioProjects/MovieRating/app/src/main/res/layout/fragment_search.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/trong/AndroidStudioProjects/MovieRating/app/src/main/res/layout/fragment_trailer_list.xml" value="0.19010416666666666" />
       </map>
     </option>
   </component>

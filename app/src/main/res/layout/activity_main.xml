@@ -4,15 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#000000"
+    tools:context=".activity.movieList" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+    <ImageView
+        android:id="@+id/home"
+        android:layout_width="44dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="692dp"
+
+        android:src="@drawable/img"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/search"
+        android:layout_width="42dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="696dp"
+
+        android:src="@drawable/iconsearch"
+        app:layout_constraintEnd_toStartOf="@+id/trailer"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toEndOf="@+id/home"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/trailer"
+        android:layout_width="42dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="692dp"
+        android:layout_marginEnd="44dp"
+
+        android:src="@drawable/icontrailer"
+        app:layout_constraintEnd_toStartOf="@+id/user"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/user"
+        android:layout_width="38dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="688dp"
+        android:layout_marginEnd="28dp"
+
+        android:src="@drawable/iconuser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/dsa"
+        android:layout_width="56dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/icontop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <fragment
+        android:id="@+id/fragmentContainerView"
+        android:name="com.example.movierating.fragment.movieListFragment"
+        android:layout_width="385dp"
+        android:layout_height="629dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dsa"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

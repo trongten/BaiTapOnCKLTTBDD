@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.itemMovieList">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <EditText
+        android:id="@+id/editTextTextMovieName"
+        android:layout_width="353dp"
+        android:layout_height="53dp"
+        android:background="@drawable/sear"
+        android:drawableLeft="@drawable/iconsearch"
+        android:ems="10"
+        android:hint="Movie Name"
+        android:inputType="textPersonName"
+        android:paddingLeft="30dp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/idmovielistview2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/idmovielistview2"
+        android:layout_width="409dp"
+        android:layout_height="634dp"
+        android:background="#434343"
+        android:cacheColorHint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMovieName">
+
+
+    </ListView>
+</androidx.constraintlayout.widget.ConstraintLayout>
