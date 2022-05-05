@@ -53,7 +53,7 @@ public class searchFragment extends Fragment {
         movieListAdapter.setFilterBySearch("KoCoPhomAsdw");
         idListView.setAdapter(movieListAdapter);
 
-        te = view.findViewById(R.id.editTextTextMovieName);
+        te = view.findViewById(R.id.edtSearchMovieName);
 
         te.addTextChangedListener(new TextWatcher() {
             @Override

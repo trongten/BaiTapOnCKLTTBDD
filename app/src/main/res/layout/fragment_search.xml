@@ -10,31 +10,35 @@
     <!-- TODO: Update blank fragment layout -->
 
     <EditText
-        android:id="@+id/editTextTextMovieName"
-        android:layout_width="353dp"
-        android:layout_height="53dp"
+        android:id="@+id/edtSearchMovieName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/sear"
-        android:drawableLeft="@drawable/iconsearch"
+        android:drawableLeft="@android:drawable/ic_menu_search"
         android:ems="10"
         android:hint="Movie Name"
         android:inputType="textPersonName"
-        android:paddingLeft="30dp"
+        android:padding="10dp"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/idmovielistview2"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/idmovielistview2"
-        android:layout_width="409dp"
-        android:layout_height="634dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         android:background="#434343"
         android:cacheColorHint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMovieName">
+        app:layout_constraintTop_toBottomOf="@+id/edtSearchMovieName">
 
 
     </ListView>
