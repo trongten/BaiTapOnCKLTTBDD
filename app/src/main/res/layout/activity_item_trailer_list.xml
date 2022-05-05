@@ -17,21 +17,21 @@
 
     <ImageView
         android:id="@+id/idImgMovie"
-        android:layout_width="406dp"
+        android:layout_width="0dp"
         android:layout_height="132dp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41"
+        app:layout_constraintVertical_bias="1.0"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/idMovieName"
         android:layout_width="241dp"
         android:layout_height="37dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="TextView"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
@@ -45,7 +45,6 @@
         android:id="@+id/idTL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="TextView"
         android:textColor="#535353"
         android:textSize="16sp"
@@ -60,13 +59,13 @@
         style="@style/Widget.AppCompat.RatingBar"
         android:layout_width="240dp"
         android:layout_height="42dp"
-        android:layout_marginTop="52dp"
+        android:contentDescription="@string/app_name"
         android:numStars="5"
         android:progressTint="#FFEB3B"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/idMovieName"
         app:layout_constraintHorizontal_bias="0.093"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view" />
+        app:layout_constraintStart_toStartOf="@+id/idMovieName"
+        app:layout_constraintTop_toBottomOf="@+id/idMovieName" />
 
     <ImageView
         android:id="@+id/imageView"
