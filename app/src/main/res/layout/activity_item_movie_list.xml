@@ -8,10 +8,11 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="408dp"
+        android:layout_width="0dp"
         android:layout_height="136dp"
         android:background="#858585"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,9 +20,8 @@
         android:id="@+id/idImgMovie"
         android:layout_width="79dp"
         android:layout_height="112dp"
+        android:layout_marginStart="32dp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.41"
@@ -29,42 +29,38 @@
 
     <TextView
         android:id="@+id/idMovieName"
-        android:layout_width="241dp"
-        android:layout_height="37dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.805"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/idImgMovie"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/idTL"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textColor="#535353"
         android:textSize="16sp"
         android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.395"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+        app:layout_constraintStart_toStartOf="@+id/idMovieName"
+        app:layout_constraintTop_toBottomOf="@+id/rating" />
 
     <RatingBar
-        android:id="@+id/ratingBar"
+        android:id="@+id/rating"
         style="@style/Widget.AppCompat.RatingBar"
         android:layout_width="240dp"
         android:layout_height="42dp"
-        android:layout_marginTop="52dp"
+        android:clickable="false"
+        android:contentDescription="@string/app_name"
         android:numStars="5"
         android:progressTint="#FFEB3B"
         android:rating="4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.807"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view" />
+        app:layout_constraintStart_toStartOf="@+id/idMovieName"
+        app:layout_constraintTop_toBottomOf="@+id/idMovieName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

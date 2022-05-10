@@ -11,6 +11,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.movierating.R;
+import com.example.movierating.activity.movieDetail;
 import com.example.movierating.entity.Movie;
 
 import java.util.ArrayList;
@@ -20,11 +21,11 @@ public class movieListAdapter extends BaseAdapter {
 
     Context context;
     int layout;
-    ArrayList<Movie> arrayList;
-    ArrayList<Movie> arrayFilter;
+    List<Movie> arrayList;
+    List<Movie> arrayFilter;
     private int positionSelect = -1;
 
-    public movieListAdapter(Context context, int layout, ArrayList<Movie> arrayList) {
+    public movieListAdapter(Context context, int layout, List<Movie> arrayList) {
         this.context = context;
         this.layout = layout;
         this.arrayList = arrayList;
@@ -53,26 +54,32 @@ public class movieListAdapter extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
         }
-
+        //List movie
         TextView tvName= view.findViewById(R.id.idMovieName);
         TextView tvtl= view.findViewById(R.id.idTL);
         ImageView imgTv=  view.findViewById(R.id.idImgMovie);
-        RatingBar rt = view.findViewById(R.id.ratingBar);
+        RatingBar rt = view.findViewById(R.id.rating);
 
         Movie movie = arrayFilter.get(i);
+
         tvName.setText(movie.getMovieName());
         tvtl.setText(movie.getDescription());
-        imgTv.setImageResource(movie.getIdMovie());
+        imgTv.setImageResource(movie.getId());
         rt.setRating(Float.parseFloat(String.valueOf(movie.getRating())));
 
         //Viet Intent vao day
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent(context, movieDetail.class);
+                i.putExtra("name",movie.getMovieName());
+                i.putExtra("description",movie.getDescription());
+                i.putExtra("rating",movie.getRating());
+                i.putExtra("img",movie.getLinkImg());
+                i.putExtra("trailer",movie.getLinkTrailer());
+                context.startActivity(i);
             }
         });
-
         return view;
     }
 

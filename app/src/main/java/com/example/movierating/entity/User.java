@@ -1,7 +1,19 @@
 package com.example.movierating.entity;
 
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "users")
 public class User {
-    private String userName, password, email;
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+
+    private String userName;
+
+    private String password;
+
+    private String email;
 
     public User() {
     }
@@ -30,9 +42,26 @@ public class User {
         this.email = email;
     }
 
+    @Ignore
+    public User(int id, String userName, String password, String email) {
+        this.id = id;
+        this.userName = userName;
+        this.password = password;
+        this.email = email;
+    }
+
+    @Ignore
     public User(String userName, String password, String email) {
         this.userName = userName;
         this.password = password;
         this.email = email;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

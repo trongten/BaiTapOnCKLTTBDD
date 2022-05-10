@@ -1,9 +1,33 @@
 package com.example.movierating.entity;
 
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "Movie")
 public class Movie {
-    private int idMovie;
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private String movieName, description, linkTrailer, linkImg;
     private Double rating;
+    private int year;
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
 
     public Movie() {
     }
@@ -16,22 +40,17 @@ public class Movie {
         this.linkImg = linkImg;
     }
 
-    public Movie(int idMovie, String movieName, String description, String linkTrailer, String linkImg, Double rating) {
-        this.idMovie = idMovie;
+    @Ignore
+    public Movie(String movieName, String description, String linkTrailer, String linkImg, Double rating, int year) {
         this.movieName = movieName;
         this.description = description;
         this.linkTrailer = linkTrailer;
         this.linkImg = linkImg;
         this.rating = rating;
+        this.year = year;
     }
 
-    public int getIdMovie() {
-        return idMovie;
-    }
 
-    public void setIdMovie(int idMovie) {
-        this.idMovie = idMovie;
-    }
 
     public String getMovieName() {
         return movieName;
