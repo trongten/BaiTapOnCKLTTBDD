@@ -9,6 +9,16 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <View
+        android:id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/edtSearchMovieName"
         android:layout_width="0dp"
@@ -42,4 +52,5 @@
 
 
     </ListView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

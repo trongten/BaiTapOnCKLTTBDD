@@ -1,18 +1,38 @@
 package com.example.movierating.entity;
 
-public class Review {
-    private int idReview;
-    private String comment;
-    private int rating;
-    private User user;
-    private Movie movie;
+import androidx.room.Entity;
+import androidx.room.Ignore;
 
-    public int getIdReview() {
-        return idReview;
+@Entity(primaryKeys = {"userID", "movieID"})
+public class Review {
+    private String comment;
+
+    private int rating;
+    private int userID;
+    private int movieID;
+
+    public int getUserID() {
+        return userID;
     }
 
-    public void setIdReview(int idReview) {
-        this.idReview = idReview;
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+@Ignore
+    public Review(String comment, int rating, int userID, int movieID) {
+        this.comment = comment;
+        this.rating = rating;
+        this.userID = userID;
+        this.movieID = movieID;
+    }
+
+
+    public int getMovieID() {
+        return movieID;
+    }
+
+    public void setMovieID(int movieID) {
+        this.movieID = movieID;
     }
 
     public String getComment() {
@@ -31,31 +51,9 @@ public class Review {
         this.rating = rating;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Movie getMovie() {
-        return movie;
-    }
-
-    public void setMovie(Movie movie) {
-        this.movie = movie;
-    }
 
     public Review() {
     }
 
-    public Review(int idReview, String comment, int rating, User user, Movie movie) {
-        this.idReview = idReview;
-        this.comment = comment;
-        this.rating = rating;
-        this.user = user;
-        this.movie = movie;
-    }
 
 }

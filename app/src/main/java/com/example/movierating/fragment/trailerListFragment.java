@@ -38,11 +38,11 @@ public class trailerListFragment extends Fragment {
         idListView = view.findViewById(R.id.idmovielistview);
 
         ArrayList<Movie> movies = new ArrayList<>();
-        movies.add(new Movie(R.drawable.img_1, "Phim Hay", "tv-series", "", "", 7.0));
-        movies.add(new Movie(R.drawable.img_2, "Phim Hay", "tv-series", "", "", 4.0));
-        movies.add(new Movie(R.drawable.img_1, "Phim Hay", "tv-series", "", "", 3.0));
-        movies.add(new Movie(R.drawable.img_2, "Phim Hay", "tv-series", "", "", 4.5));
-        movies.add(new Movie(R.drawable.img_1, "Phim Hay", "tv-series", "", "", 4.0));
+        movies.add(new Movie("Phim Hay", "tv-series", "", "", 7.0, 2021));
+        movies.add(new Movie("Phim Hay", "tv-series", "", "", 4.0, 2021));
+        movies.add(new Movie("Phim Hay", "tv-series", "", "", 3.0, 2021));
+        movies.add(new Movie("Phim Hay", "tv-series", "", "", 4.5, 2021));
+        movies.add(new Movie("Phim Hay", "tv-series", "", "", 4.0, 2021));
 
         movieListAdapter movieListAdapter = new movieListAdapter(getActivity(), R.layout.activity_item_trailer_list, movies);
         idListView.setAdapter(movieListAdapter);

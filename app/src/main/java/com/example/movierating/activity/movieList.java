@@ -55,5 +55,7 @@ public class movieList extends AppCompatActivity {
             }
         });
 
+
+
     }
 }
