@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".activity.movieList" >
+    tools:context=".activity.movieList">
 
     <ImageView
         android:id="@+id/home"
@@ -16,7 +16,8 @@
         android:layout_marginBottom="8dp"
         android:src="@drawable/img"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView" />
 
     <ImageView
         android:id="@+id/search"
@@ -57,7 +58,9 @@
         android:layout_width="56dp"
         android:layout_height="32dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:src="@drawable/icontop"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,11 +70,15 @@
         android:id="@+id/fragmentContainerView"
         android:name="com.example.movierating.fragment.movieListFragment"
         android:layout_width="0dp"
-        android:layout_height="629dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dsa"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout="@layout/activity_item_movie_list" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

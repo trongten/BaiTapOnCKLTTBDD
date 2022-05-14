@@ -1,5 +1,6 @@
 package com.example.movierating.entity;
 
+
 import androidx.room.Embedded;
 import androidx.room.Relation;
 
@@ -12,5 +13,5 @@ public class UserWithReview {
             parentColumn = "id",
             entityColumn = "id"
 
-    )public List<Review> reviewList;
+    ) public List<Review> reviewList;
 }

@@ -1,6 +1,9 @@
 package com.example.movierating.dao;
 
-import androidx.lifecycle.LiveData;
+
+import static androidx.room.OnConflictStrategy.IGNORE;
+import static androidx.room.OnConflictStrategy.REPLACE;
+
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -11,22 +14,25 @@ import com.example.movierating.entity.Movie;
 
 import java.util.List;
 
+
 @Dao
 public interface DAO_Movie{
 
-    @Query("select * from Movie")//custom sql
-    LiveData<List<Movie>> getAllMovie();
-
-    @Insert
+    @Insert(onConflict = REPLACE)
     void insertMovie(Movie... movies);
 
-    @Update
+    @Insert(onConflict = IGNORE)
+    void insertOrRelpaceMovie(Movie... movies);
+
+    @Update(onConflict = REPLACE)
     void updateMovie(Movie... movies);
 
     @Delete
     void deleteMovie(Movie... movies);
 
     @Query("delete from Movie")
-    void deleteAll();
+    public void deleteAll();
 
+    @Query("SELECT * FROM Movie")
+    public List<Movie> findAllMovies();
 }

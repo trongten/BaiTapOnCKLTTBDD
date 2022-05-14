@@ -11,13 +11,13 @@ import com.example.movierating.entity.Movie;
 import java.util.List;
 
 public class RepositoryMovie {
-    private LiveData<List<Movie>> liveData;
+    private List<Movie> liveData;
     private DAO_Movie dao_movie;
 
-    public RepositoryMovie(Application application) {
+/*    public RepositoryMovie(Application application) {
         dao_movie = DB_Movie.getInstance(application).dao_movie();
-        liveData = dao_movie.getAllMovie();
-    }
+        liveData = (List<Movie>) dao_movie.getAllMovie();
+    }*/
 
 
 }

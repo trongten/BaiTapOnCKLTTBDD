@@ -32,11 +32,9 @@ public class movieListAdapter extends BaseAdapter {
         arrayFilter= arrayList;
     }
 
-
-
     @Override
     public int getCount() {
-        return  arrayFilter.size();
+        return  0;
     }
 
     @Override
@@ -55,7 +53,7 @@ public class movieListAdapter extends BaseAdapter {
             view = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
         }
         //List movie
-        TextView tvName= view.findViewById(R.id.idMovieName);
+        TextView tvName= view.findViewById(R.id.tvwMovieName);
         TextView tvtl= view.findViewById(R.id.idTL);
         ImageView imgTv=  view.findViewById(R.id.idImgMovie);
         RatingBar rt = view.findViewById(R.id.rating);
@@ -85,7 +83,7 @@ public class movieListAdapter extends BaseAdapter {
 
 
     public void setFilter(String filter) {
-        arrayFilter = new ArrayList<>();
+        arrayFilter =  new ArrayList<>();
         System.out.println(filter);
         for(Movie movie: arrayList) {
             //indexOf: tim chuoi trong chuoi: thanh cong (123) => -1

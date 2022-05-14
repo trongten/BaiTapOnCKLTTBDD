@@ -1,5 +1,9 @@
 package com.example.movierating.entity;
 
+
+
+
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -17,8 +21,17 @@ public class Movie {
         this.id = id;
     }
 
-    private String movieName, description, linkTrailer, linkImg;
+    @ColumnInfo(name = "movieName")
+    private String movieName;
+    @ColumnInfo(name = "description")
+    private String description;
+    @ColumnInfo(name = "linkTrailer")
+    private String linkTrailer;
+    @ColumnInfo(name = "linkImg")
+    private String linkImg;
+    @ColumnInfo(name = "rating")
     private Double rating;
+    @ColumnInfo(name = "year")
     private int year;
 
     public int getYear() {

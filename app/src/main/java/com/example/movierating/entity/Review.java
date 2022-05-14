@@ -1,12 +1,15 @@
 package com.example.movierating.entity;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 
 @Entity(primaryKeys = {"userID", "movieID"})
 public class Review {
+    @ColumnInfo(name = "comment")
     private String comment;
 
+    @ColumnInfo(name = "rating")
     private int rating;
     private int userID;
     private int movieID;

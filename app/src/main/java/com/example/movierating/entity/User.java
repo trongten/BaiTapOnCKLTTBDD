@@ -1,5 +1,6 @@
 package com.example.movierating.entity;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -8,11 +9,11 @@ import androidx.room.PrimaryKey;
 public class User {
     @PrimaryKey(autoGenerate = true)
     private int id;
-
+    @ColumnInfo(name = "userName")
     private String userName;
-
+    @ColumnInfo(name="password")
     private String password;
-
+@ColumnInfo(name = "email")
     private String email;
 
     public User() {

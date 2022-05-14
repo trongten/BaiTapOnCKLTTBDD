@@ -28,7 +28,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/idMovieName"
+        android:id="@+id/tvwMovieName"
         android:layout_width="241dp"
         android:layout_height="37dp"
         android:layout_marginTop="24dp"
@@ -62,10 +62,10 @@
         android:contentDescription="@string/app_name"
         android:numStars="5"
         android:progressTint="#FFEB3B"
-        app:layout_constraintEnd_toEndOf="@+id/idMovieName"
+        app:layout_constraintEnd_toEndOf="@+id/tvwMovieName"
         app:layout_constraintHorizontal_bias="0.093"
-        app:layout_constraintStart_toStartOf="@+id/idMovieName"
-        app:layout_constraintTop_toBottomOf="@+id/idMovieName" />
+        app:layout_constraintStart_toStartOf="@+id/tvwMovieName"
+        app:layout_constraintTop_toBottomOf="@+id/tvwMovieName" />
 
     <ImageView
         android:id="@+id/imageView"
