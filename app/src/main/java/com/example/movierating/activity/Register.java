@@ -20,7 +20,7 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
 
-        edTaiKhoan = (EditText) findViewById(R.id.ed_Register_Taikhoan;
+        edTaiKhoan = (EditText) findViewById(R.id.ed_Register_Taikhoan);
         edPass = (EditText) findViewById(R.id.ed_Register_Password);
         edRePass = (EditText) findViewById(R.id.ed_Register_RePassword);
         edEmail= (EditText) findViewById(R.id.ed_Register_email);

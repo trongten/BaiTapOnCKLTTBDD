@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:alpha="1"
     tools:context=".activity.itemMovieList">
 
     <View
@@ -19,6 +20,10 @@
         android:id="@+id/idImgMovie"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:alpha="0.5"
+        android:scaleX="3"
+        android:scaleY="3"
+        android:translationY="50dp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
@@ -28,7 +33,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/tvwMovieName"
+        android:id="@+id/tvwName_itemMovieList"
         android:layout_width="241dp"
         android:layout_height="37dp"
         android:layout_marginTop="24dp"
@@ -42,16 +47,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/idTL"
+        android:id="@+id/tvNam_itemMovieList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textColor="#535353"
         android:textSize="16sp"
         android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.904"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/rating" />
 
     <RatingBar
@@ -62,16 +67,17 @@
         android:contentDescription="@string/app_name"
         android:numStars="5"
         android:progressTint="#FFEB3B"
-        app:layout_constraintEnd_toEndOf="@+id/tvwMovieName"
+        app:layout_constraintEnd_toEndOf="@+id/tvwName_itemMovieList"
         app:layout_constraintHorizontal_bias="0.093"
-        app:layout_constraintStart_toStartOf="@+id/tvwMovieName"
-        app:layout_constraintTop_toBottomOf="@+id/tvwMovieName" />
+        app:layout_constraintStart_toStartOf="@+id/tvwName_itemMovieList"
+        app:layout_constraintTop_toBottomOf="@+id/tvwName_itemMovieList" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:layout_marginTop="32dp"
+        android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.889"
         app:layout_constraintStart_toStartOf="parent"

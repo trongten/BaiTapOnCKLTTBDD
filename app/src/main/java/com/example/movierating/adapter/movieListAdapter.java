@@ -2,10 +2,6 @@ package com.example.movierating.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +15,6 @@ import com.example.movierating.activity.movieDetail;
 import com.example.movierating.entity.Movie;
 import com.example.movierating.other.ImageLoadTask;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,12 +30,12 @@ public class movieListAdapter extends BaseAdapter {
         this.context = context;
         this.layout = layout;
         this.arrayList = arrayList;
-        arrayFilter= arrayList;
+        arrayFilter = arrayList;
     }
 
     @Override
     public int getCount() {
-        return  arrayFilter.size();
+        return arrayFilter.size();
     }
 
     @Override
@@ -62,9 +54,10 @@ public class movieListAdapter extends BaseAdapter {
             view = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
         }
         //List movie
-        TextView tvName= view.findViewById(R.id.tvwMovieName);
-        TextView tvtl= view.findViewById(R.id.idTL);
-        ImageView imgTv=  view.findViewById(R.id.idImgMovie);
+        TextView tvName = view.findViewById(R.id.tvwName_itemMovieList);
+        TextView tvtl = view.findViewById(R.id.tvNam_itemMovieList);
+        ImageView imgTv = view.findViewById(R.id.idImgMovie);
+
         RatingBar rt = view.findViewById(R.id.rating);
 
         Movie movie = arrayFilter.get(i);
@@ -74,17 +67,22 @@ public class movieListAdapter extends BaseAdapter {
         new ImageLoadTask(movie.getLinkImg(), imgTv).execute();
         rt.setRating(Float.parseFloat(String.valueOf(movie.getRating())));
 
+        TextView tvDescription = view.findViewById(R.id.tvDescription_itemMovieList);
+        if (tvDescription != null) {
+            tvDescription.setText(movie.getDescription());
+        }
+
         //Viet Intent vao day
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(context, movieDetail.class);
-                i.putExtra("name",movie.getMovieName());
-                i.putExtra("description",movie.getDescription());
-                i.putExtra("rating",movie.getRating());
-                i.putExtra("img",movie.getLinkImg());
-                i.putExtra("trailer",movie.getLinkTrailer());
-                i.putExtra("year",movie.getYear());
+                i.putExtra("name", movie.getMovieName());
+                i.putExtra("description", movie.getDescription());
+                i.putExtra("rating", movie.getRating());
+                i.putExtra("img", movie.getLinkImg());
+                i.putExtra("trailer", movie.getLinkTrailer());
+                i.putExtra("year", movie.getYear());
                 context.startActivity(i);
             }
         });
@@ -93,11 +91,11 @@ public class movieListAdapter extends BaseAdapter {
 
 
     public void setFilter(String filter) {
-        arrayFilter =  new ArrayList<>();
+        arrayFilter = new ArrayList<>();
         System.out.println(filter);
-        for(Movie movie: arrayList) {
+        for (Movie movie : arrayList) {
             //indexOf: tim chuoi trong chuoi: thanh cong (123) => -1
-            if(movie.getMovieName().toLowerCase().indexOf(filter) != -1) {
+            if (movie.getMovieName().toLowerCase().indexOf(filter) != -1) {
                 arrayFilter.add(movie);
             }
         }
@@ -105,6 +103,7 @@ public class movieListAdapter extends BaseAdapter {
 
         notifyDataSetChanged();
     }
+
     public void setFilterBySearch(String giaTriInPut) {
         //123
         setFilter(giaTriInPut);
