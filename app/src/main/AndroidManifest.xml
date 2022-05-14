@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieRating">
+        <activity android:name=".activity.Register"
+            android:exported="false"/>
+        <activity
+            android:name=".activity.Login"
+            android:exported="false" />
         <activity
             android:name=".activity.MainForLogin"
             android:exported="false" />

@@ -7,7 +7,7 @@
     android:background="#020202">
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/ed_Register_RePassword"
         android:layout_width="278dp"
         android:layout_height="51dp"
         android:layout_marginTop="8dp"
@@ -15,7 +15,7 @@
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
+        app:layout_constraintEnd_toEndOf="@+id/ed_Register_Password"
         app:layout_constraintStart_toStartOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -26,8 +26,8 @@
         android:layout_marginTop="16dp"
         android:text="Mật khẩu"
         android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintStart_toStartOf="@+id/ed_Register_Taikhoan"
+        app:layout_constraintTop_toBottomOf="@+id/ed_Register_Taikhoan" />
 
     <TextView
         android:id="@+id/textView7"
@@ -36,8 +36,8 @@
         android:layout_marginTop="16dp"
         android:text="Email"
         android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+        app:layout_constraintStart_toStartOf="@+id/ed_Register_RePassword"
+        app:layout_constraintTop_toBottomOf="@+id/ed_Register_RePassword" />
 
     <TextView
         android:id="@+id/textView8"
@@ -46,11 +46,11 @@
         android:layout_marginTop="16dp"
         android:text="Nhập lại mật khẩu"
         android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintStart_toStartOf="@+id/ed_Register_Password"
+        app:layout_constraintTop_toBottomOf="@+id/ed_Register_Password" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/ed_Register_Taikhoan"
         android:layout_width="278dp"
         android:layout_height="51dp"
         android:layout_marginTop="8dp"
@@ -89,18 +89,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_register_register"
         android:layout_width="280dp"
         android:layout_height="58dp"
         android:layout_marginTop="60dp"
         android:backgroundTint="#FFB800"
         android:text="Register"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintEnd_toEndOf="@+id/ed_Register_email"
+        app:layout_constraintStart_toStartOf="@+id/ed_Register_email"
+        app:layout_constraintTop_toBottomOf="@+id/ed_Register_email" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/ed_Register_Password"
         android:layout_width="278dp"
         android:layout_height="51dp"
         android:layout_marginTop="8dp"
@@ -108,12 +108,12 @@
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
+        app:layout_constraintEnd_toEndOf="@+id/ed_Register_Taikhoan"
         app:layout_constraintStart_toStartOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/ed_Register_email"
         android:layout_width="278dp"
         android:layout_height="51dp"
         android:layout_marginTop="8dp"
@@ -121,7 +121,7 @@
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword2"
+        app:layout_constraintEnd_toEndOf="@+id/ed_Register_RePassword"
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 </androidx.constraintlayout.widget.ConstraintLayout>
