@@ -176,13 +176,15 @@
 
     <ImageButton
         android:id="@+id/btnComment"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="90dp"
+        android:layout_height="51dp"
         android:background="#FFC107"
+        android:src="@drawable/upload"
         app:layout_constraintBottom_toBottomOf="@+id/edtYourComment_Detail"
         app:layout_constraintEnd_toEndOf="@+id/tvwDescription_Detail"
         app:layout_constraintStart_toEndOf="@+id/edtYourComment_Detail"
         app:layout_constraintTop_toTopOf="@+id/edtYourComment_Detail"
+        tools:ignore="SpeakableTextPresentCheck"
         tools:src="@drawable/upload" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

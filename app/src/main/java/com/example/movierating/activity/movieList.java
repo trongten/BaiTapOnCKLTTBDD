@@ -1,5 +1,6 @@
 package com.example.movierating.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -38,7 +39,6 @@ public class movieList extends AppCompatActivity {
         movieFrag = new movieListFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainerView, movieFrag, "movieFragment").commit();
 
-
         ImageView home = findViewById(R.id.home);
         ImageView search = findViewById(R.id.search);
         ImageView trailer = findViewById(R.id.trailer);
@@ -69,6 +69,15 @@ public class movieList extends AppCompatActivity {
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, new trailerListFragment(), "movieFragment").commit();
 
+            }
+        });
+
+        user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(getBaseContext(),Login.class);
+                startActivity(i);
             }
         });
 

@@ -44,7 +44,8 @@
         android:inputType="textPersonName"
         android:textColor="#FA0B0A0A"
         app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/textView3"
@@ -80,14 +81,15 @@
         app:layout_constraintTop_toBottomOf="@+id/ed_Login_Password" />
 
     <TextView
-        android:id="@+id/tv_khongcanDangNhap"
+        android:id="@+id/tvregister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Tiếp tục không cần đăng nhập"
+        android:layout_marginTop="28dp"
+        android:text="Bạn chưa có tài khoản ?"
         android:textColor="#959595"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/btn_Login_Login"
+        app:layout_constraintHorizontal_bias="0.685"
         app:layout_constraintStart_toStartOf="@+id/btn_Login_Login"
         app:layout_constraintTop_toBottomOf="@+id/btn_Login_Login" />
 

@@ -2,6 +2,9 @@ package com.example.movierating.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +24,7 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
     String API_KEY = "AIzaSyDekrO-eHzhP4bfsRdFDuD_87ccxiXhxbU";
     int REQUEST_VIDEO = 123;
     private String trailer;
+    ImageButton btnCM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,20 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
 
         youTubePlayerView = findViewById(R.id.vidTrialer);
         youTubePlayerView.initialize(API_KEY, this);
+
+        btnCM = findViewById(R.id.btnComment);
+        btnCM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(Login.firebaseUser!=null){
+                    // Viet lenh up comment len firebase
+                } else{
+                    //neu chua login thi login
+                    Intent i = new Intent(getBaseContext(),MainForLogin.class);
+                    startActivity(i);
+                }
+            }
+        });
 
     }
 
