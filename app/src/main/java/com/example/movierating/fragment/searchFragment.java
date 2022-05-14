@@ -20,6 +20,7 @@ import com.example.movierating.entity.Movie;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 ///**
 // * A simple {@link Fragment} subclass.
@@ -67,7 +68,7 @@ public class searchFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                movieListAdapter.setFilterBySearch(editable.toString());
+                movieListAdapter.setFilterBySearch(editable.toString().toLowerCase(Locale.ROOT));
             }
         });
 

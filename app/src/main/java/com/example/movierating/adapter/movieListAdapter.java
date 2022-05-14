@@ -2,6 +2,10 @@ package com.example.movierating.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +17,12 @@ import android.widget.TextView;
 import com.example.movierating.R;
 import com.example.movierating.activity.movieDetail;
 import com.example.movierating.entity.Movie;
+import com.example.movierating.other.ImageLoadTask;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,17 +43,17 @@ public class movieListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return  0;
+        return  arrayFilter.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return null;
+        return arrayFilter.get(i);
     }
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return arrayFilter.get(i).getId();
     }
 
     @Override
@@ -61,8 +70,8 @@ public class movieListAdapter extends BaseAdapter {
         Movie movie = arrayFilter.get(i);
 
         tvName.setText(movie.getMovieName());
-        tvtl.setText(movie.getDescription());
-        imgTv.setImageResource(movie.getId());
+        tvtl.setText(String.valueOf(movie.getYear()));
+        new ImageLoadTask(movie.getLinkImg(), imgTv).execute();
         rt.setRating(Float.parseFloat(String.valueOf(movie.getRating())));
 
         //Viet Intent vao day
@@ -75,6 +84,7 @@ public class movieListAdapter extends BaseAdapter {
                 i.putExtra("rating",movie.getRating());
                 i.putExtra("img",movie.getLinkImg());
                 i.putExtra("trailer",movie.getLinkTrailer());
+                i.putExtra("year",movie.getYear());
                 context.startActivity(i);
             }
         });

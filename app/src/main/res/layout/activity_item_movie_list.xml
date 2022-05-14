@@ -1,66 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.itemMovieList">
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="0dp"
-        android:layout_height="136dp"
-        android:background="#858585"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/idImgMovie"
-        android:layout_width="79dp"
-        android:layout_height="112dp"
-        android:layout_marginStart="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/tvwMovieName"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/idImgMovie"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="#616161"
+        android:backgroundTint="#979797">
 
-    <TextView
-        android:id="@+id/idTL"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="#535353"
-        android:textSize="16sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintStart_toStartOf="@+id/tvwMovieName"
-        app:layout_constraintTop_toBottomOf="@+id/rating" />
+        <ImageView
+            android:id="@+id/idImgMovie"
+            android:layout_width="118.5dp"
+            android:layout_height="168dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
 
-    <RatingBar
-        android:id="@+id/rating"
-        style="@style/Widget.AppCompat.RatingBar"
-        android:layout_width="240dp"
-        android:layout_height="42dp"
-        android:clickable="false"
-        android:contentDescription="@string/app_name"
-        android:numStars="5"
-        android:progressTint="#FFEB3B"
-        android:rating="4"
-        app:layout_constraintStart_toStartOf="@+id/tvwMovieName"
-        app:layout_constraintTop_toBottomOf="@+id/tvwMovieName" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvwMovieName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/idImgMovie"
+            app:layout_constraintTop_toTopOf="@+id/idImgMovie" />
+
+        <TextView
+            android:id="@+id/idTL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="#535353"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="@+id/rating"
+            app:layout_constraintTop_toBottomOf="@+id/rating" />
+
+        <RatingBar
+            android:id="@+id/rating"
+            style="@style/Widget.AppCompat.RatingBar"
+            android:layout_width="240dp"
+            android:layout_height="42dp"
+            android:clickable="false"
+            android:contentDescription="@string/app_name"
+            android:numStars="5"
+            android:progressTint="#FFC107"
+            android:rating="4"
+            app:layout_constraintStart_toStartOf="@+id/tvwMovieName"
+            app:layout_constraintTop_toBottomOf="@+id/tvwMovieName" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
