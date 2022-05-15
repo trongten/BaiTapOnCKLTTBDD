@@ -58,7 +58,7 @@ public class CommentAdapter extends BaseAdapter {
 
         txtemail.setText(rt.getUser());
         txtcmt.setText(rt.getComment());
-        txtrate.setText(String.valueOf(rt.getRating()));
+        txtrate.setText("("+String.valueOf(rt.getRating())+"):");
 
 
 

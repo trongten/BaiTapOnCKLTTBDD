@@ -8,183 +8,215 @@
     android:background="#343434"
     tools:context=".activity.movieDetail">
 
-    <ImageView
-        android:id="@+id/imgImg_Detail"
-        android:layout_width="150dp"
-        android:layout_height="233.9dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-        tools:src="@tools:sample/avatars" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_end="185dp"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.youtube.player.YouTubePlayerView
-        android:id="@+id/vidTrialer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvwYear_Detail" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:text="Descripsion"
-        android:textColor="#C4C4C4"
-        app:layout_constraintStart_toEndOf="@+id/imgImg_Detail"
-        app:layout_constraintTop_toTopOf="@+id/imgImg_Detail" />
-
-    <TextView
-        android:id="@+id/tvwDescription_Detail"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
-        android:textColor="#C4C4C4C4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/tvwRating_Detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="/5"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/tvwRating_Detail"
-        app:layout_constraintTop_toTopOf="@+id/tvwRating_Detail" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:src="@android:drawable/btn_star_big_on"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/tvwDescription_Detail" />
-
-    <EditText
-        android:id="@+id/edtYourComment_Detail"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/white"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Comments Here"
-        android:inputType="textMultiLine"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/btnComment"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Your Reviews"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/imgImg_Detail"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="313dp" />
-
-    <TextView
-        android:id="@+id/tvwName_Detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-thin"
-        android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvwYear_Detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-thin"
-        android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/tvwName_Detail"
-        app:layout_constraintTop_toBottomOf="@+id/tvwName_Detail" />
-
-    <ListView
-        android:id="@+id/listComments_Detail"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Comments"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@+id/edtYourComment_Detail"
-        app:layout_constraintTop_toBottomOf="@+id/edtYourComment_Detail" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/btnComment"
-        android:layout_width="90dp"
-        android:layout_height="51dp"
-        android:background="#FFC107"
-        android:src="@drawable/upload"
-        app:layout_constraintBottom_toBottomOf="@+id/edtYourComment_Detail"
-        app:layout_constraintEnd_toEndOf="@+id/tvwDescription_Detail"
-        app:layout_constraintStart_toEndOf="@+id/edtYourComment_Detail"
-        app:layout_constraintTop_toTopOf="@+id/edtYourComment_Detail"
-        tools:ignore="SpeakableTextPresentCheck"
-        tools:src="@drawable/upload" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <TextView
+                    android:id="@+id/tvwYear_Detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-thin"
+                    android:text="TextView"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/tvwName_Detail"
+                    app:layout_constraintTop_toBottomOf="@+id/tvwName_Detail" />
+
+                <TextView
+                    android:id="@+id/tvwName_Detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="sans-serif-thin"
+                    android:text="TextView"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="313dp" />
+
+                <com.google.android.youtube.player.YouTubePlayerView
+                    android:id="@+id/vidTrialer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvwYear_Detail">
+
+                </com.google.android.youtube.player.YouTubePlayerView>
+
+
+                <ImageView
+                    android:id="@+id/imgImg_Detail"
+                    android:layout_width="150dp"
+                    android:layout_height="233.9dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/guideline3"
+                    tools:src="@tools:sample/avatars" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintGuide_end="185dp"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Descripsion"
+                    android:textColor="#C4C4C4"
+                    app:layout_constraintStart_toEndOf="@+id/imgImg_Detail"
+                    app:layout_constraintTop_toTopOf="@+id/imgImg_Detail" />
+
+                <TextView
+                    android:id="@+id/tvwDescription_Detail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="TextView"
+                    android:textColor="#C4C4C4C4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textView"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+                <TextView
+                    android:id="@+id/tvwRating_Detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                    app:layout_constraintStart_toEndOf="@+id/imageView4"
+                    app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/5"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/tvwRating_Detail"
+                    app:layout_constraintTop_toTopOf="@+id/tvwRating_Detail" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:src="@android:drawable/btn_star_big_on"
+                    app:layout_constraintStart_toStartOf="@+id/textView"
+                    app:layout_constraintTop_toBottomOf="@+id/tvwDescription_Detail" />
+
+                <EditText
+                    android:id="@+id/edtYourComment_Detail"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/white"
+                    android:ems="10"
+                    android:focusable="auto"
+                    android:gravity="start|top"
+                    android:hint="Comments Here"
+                    android:inputType="textMultiLine"
+                    android:textColor="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btnComment"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/textView5"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Your Reviews"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="@+id/imgImg_Detail"
+                    app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+                <ImageButton
+                    android:id="@+id/btnComment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:background="#FFC107"
+                    android:minWidth="48dp"
+                    android:src="@drawable/upload"
+                    app:layout_constraintBottom_toBottomOf="@+id/edtYourComment_Detail"
+                    app:layout_constraintEnd_toEndOf="@+id/tvwDescription_Detail"
+                    app:layout_constraintStart_toEndOf="@+id/edtYourComment_Detail"
+                    app:layout_constraintTop_toTopOf="@+id/edtYourComment_Detail"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    tools:src="@drawable/upload" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:paddingLeft="8dp"
+                    android:text="Comments"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/listComments_Detail"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ListView
+                    android:id="@+id/listComments_Detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:scrollbars="vertical|none" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

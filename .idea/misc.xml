@@ -7,11 +7,13 @@
         <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/drawable/button_gradient_background_yellow.xml" value="0.2235" />
         <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2235" />
         <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/drawable/sear.xml" value="0.205" />
+        <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/layout/activity_comment_detail.xml" value="0.6" />
+        <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/layout/activity_custom_dialog_rating.xml" value="0.27447916666666666" />
         <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/layout/activity_item_movie_list.xml" value="0.4" />
         <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/layout/activity_item_trailer_list.xml" value="0.536" />
         <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/layout/activity_main.xml" value="0.3824451410658307" />
         <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/layout/fragment_main_for_login.xml" value="0.2" />
-        <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/layout/fragment_movie_detail.xml" value="0.19896193771626297" />
+        <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/layout/fragment_movie_detail.xml" value="0.5014272121788773" />
         <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/layout/fragment_movie_list.xml" value="0.27447916666666666" />
         <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/layout/fragment_search.xml" value="0.3663663663663664" />
         <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/layout/fragment_trailer_list.xml" value="0.21666666666666667" />
