@@ -12,9 +12,19 @@ import com.example.movierating.R;
 import com.example.movierating.adapter.movieListAdapter;
 import com.example.movierating.database.DB_Movie;
 import com.example.movierating.entity.Movie;
+import com.example.movierating.entity.Rate;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 ///**
 // * A simple {@link Fragment} subclass.
@@ -22,9 +32,12 @@ import java.util.List;
 // * create an instance of this fragment.
 // */
 public class movieListFragment extends Fragment {
+
     private ListView idListView;
     private DB_Movie db_movie;
     private List<Movie> movies;
+    private DatabaseReference mDatabase;
+    private List<Movie> movies2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,45 +49,40 @@ public class movieListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
+        mDatabase = FirebaseDatabase.getInstance().getReference("Movies");
 
         View view = inflater.inflate(R.layout.fragment_movie_list, container, false);
         idListView = view.findViewById(R.id.idmovielistview);
         db_movie = DB_Movie.getInMemoryDatabase(getContext());
-        movies = new ArrayList<>();
-        createData();
 
-        movieListAdapter movieListAdapter = new movieListAdapter(getActivity(), R.layout.activity_item_movie_list, movies);
+        try {
+            mDatabase.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
+                        Movie c = postSnapshot.getValue(Movie.class);
+                        db_movie.dao_movie().insertMovie(c);
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }catch (Exception ex){
+
+        }
+
+
+        List<Movie> listMovie = db_movie.dao_movie().findAllMovies();
+        System.out.println(listMovie.toString());
+
+        movieListAdapter movieListAdapter = new movieListAdapter(getActivity(), R.layout.activity_item_movie_list, listMovie);
         idListView.setAdapter(movieListAdapter);
-
-
         return view;
     }
 
-    private void createData() {
-        db_movie.dao_movie().deleteAll();
-        db_movie.dao_movie().insertMovie(
-                new Movie(10,"Moon Knight", "Steven Grant discovers he's been granted the powers of an Egyptian moon god. But he soon finds out that these newfound powers can be both a blessing and a curse to his troubled life.",
-                        "x7Krla_UxRg",
-                        "https://m.media-amazon.com/images/M/MV5BYTc5OWNhYjktMThlOS00ODUxLTgwNDQtZjdjYjkyM2IwZTZlXkEyXkFqcGdeQXVyNTA3MTU2MjE@._V1_.jpg",
-                        4.9,
-                        2022),
-                new Movie("Moonlight", "Moonlight is a 2016 American coming-of-age drama film written and directed by Barry Jenkins, based on Tarell Alvin McCraney's unpublished semi-autobiographical play In Moonlight Black Boys Look Blue. The film stars Trevante Rhodes, André Holland, Janelle Monáe, Ashton Sanders, Jharrel Jerome, Naomie Harris, and Mahershala Ali.",
-                        "9NJj12tJzqc",
-                        "https://th.bing.com/th/id/OIP.8bFzUcZqAh8T8birELpTaAHaKn?pid=ImgDet&rs=1",
-                        2.9,
-                        2019),
-                new Movie("La La Land", "While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations for the future.",
-                        "0pdqf4P9MB8",
-                        "https://th.bing.com/th/id/OIP.U9fadaqK_MGxYqO5AW0KMQHaLH?pid=ImgDet&rs=1",
-                        4.9,
-                        2016));
-        for (Movie m : db_movie.dao_movie().findAllMovies()
-        ) {
-            System.out.println(m.getMovieName());
-        }
-        movies = db_movie.dao_movie().findAllMovies();
-    }
 
 
 }

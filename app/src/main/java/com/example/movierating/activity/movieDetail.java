@@ -26,10 +26,14 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
     private DatabaseReference mDatabase;
@@ -80,11 +84,9 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
         //load comment
         listcm = new ArrayList<>();
         laydc();
-
         idListView = findViewById(R.id.listComments_Detail);
         CommentAdapter adapter = new CommentAdapter(getBaseContext(), R.layout.activity_comment_detail, listcm);
         idListView.setAdapter(adapter);
-
         //load comment
 
         youTubePlayerView = findViewById(R.id.vidTrialer);
@@ -116,8 +118,9 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
                         public void onClick(View view) {
                             //Day du lieu len firebase
                             mDatabase.child(String.valueOf(idMovie)).child(mAuth.getCurrentUser().getUid())
-                                    .setValue(new Rate(idMovie,mAuth.getCurrentUser().getEmail(),editCMT.getText().toString(),rt.getRating()));
+                                    .setValue(new Rate(idMovie,rt.getRating(),editCMT.getText().toString(),mAuth.getCurrentUser().getEmail()));
                                     dialog.dismiss();
+
                         }
 
 
@@ -131,7 +134,10 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
             }
         });
 
+
+
     }
+
 
 
     public  void laydc(){
@@ -139,12 +145,23 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-                    String c = (String) postSnapshot.child(String.valueOf(idMovie)).getValue();
-                    System.out.println(c);
+
+                    GenericTypeIndicator<HashMap<String, Rate>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, Rate>>() {};
+                    Map<String, Rate> objectHashMap = dataSnapshot.child(String.valueOf(idMovie)).getValue(objectsGTypeInd);
+
+                    try {
+                        Set<Map.Entry<String, Rate>> setHashMap = objectHashMap.entrySet();
+                        for (Map.Entry<String,Rate> i:setHashMap){
+                            System.out.println(i.getKey()+"   -->   "+i.getValue());
+                            Rate rt = i.getValue();
+                            listcm.add(rt);
+                        }
+                    }catch (Exception ex){
+                        System.out.println(ex);
+                    }
 
 
-                }
+
             }
 
             @Override

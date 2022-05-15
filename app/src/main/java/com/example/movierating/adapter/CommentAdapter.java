@@ -17,13 +17,17 @@ public class CommentAdapter extends BaseAdapter {
     Context context;
     int layout;
     List<Rate> arrayList;
+    List<Rate> array;
     private int positionSelect = -1;
 
     public CommentAdapter(Context context, int layout, List<Rate> arrayList) {
         this.context = context;
         this.layout = layout;
         this.arrayList = arrayList;
+        this.array = arrayList;
     }
+
+
 
     @Override
     public int getCount() {
@@ -61,6 +65,11 @@ public class CommentAdapter extends BaseAdapter {
         return view;
     }
 
+
+
+    public void setArrayList(List<Rate> arrayList) {
+        this.arrayList = arrayList;
+    }
 
 
 }

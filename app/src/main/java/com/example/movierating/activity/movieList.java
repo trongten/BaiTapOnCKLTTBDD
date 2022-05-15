@@ -50,6 +50,8 @@ public class movieList extends AppCompatActivity {
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, new movieListFragment(), "movieFragment").commit();
                 TextView tvwMovieName = findViewById(R.id.tvwName_itemMovieList);
+
+
             }
         });
 

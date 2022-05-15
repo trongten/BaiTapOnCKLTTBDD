@@ -55,7 +55,7 @@ public class Movie {
 
     @Ignore
 
-    public Movie(int id,String movieName, String description, String linkTrailer, String linkImg, Double rating, int year) {
+    public Movie(String description,int id,String linkImg,String linkTrailer,String movieName,    Double rating, int year) {
         this.id=id;
         this.movieName = movieName;
         this.description = description;
@@ -105,5 +105,18 @@ public class Movie {
 
     public void setRating(Double rating) {
         this.rating = rating;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", movieName='" + movieName + '\'' +
+                ", description='" + description + '\'' +
+                ", linkTrailer='" + linkTrailer + '\'' +
+                ", linkImg='" + linkImg + '\'' +
+                ", rating=" + rating +
+                ", year=" + year +
+                '}';
     }
 }

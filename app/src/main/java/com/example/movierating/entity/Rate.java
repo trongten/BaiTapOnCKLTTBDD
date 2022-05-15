@@ -6,7 +6,7 @@ public class Rate {
     private String comment;
     private float rating;
 
-    public Rate(int movie, String user, String comment, float rating) {
+    public Rate(int movie,float rating,  String comment,String user ) {
         this.movie = movie;
         this.user = user;
         this.comment = comment;
@@ -46,5 +46,15 @@ public class Rate {
 
     public void setRating(float rating) {
         this.rating = rating;
+    }
+
+    @Override
+    public String toString() {
+        return "Rate{" +
+                "movie=" + movie +
+                ", user='" + user + '\'' +
+                ", comment='" + comment + '\'' +
+                ", rating=" + rating +
+                '}';
     }
 }

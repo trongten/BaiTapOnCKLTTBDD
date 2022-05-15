@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".activity.Comment_Detail">
 
     <TextView
@@ -12,6 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="TextView"
+        android:textColor="#FF1111"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.249"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,6 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:text="TextView"
+        android:textColor="#FF1111"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.249"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,6 +39,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:text="TextView"
+        android:textColor="#FF1111"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.249"
         app:layout_constraintStart_toStartOf="parent"
