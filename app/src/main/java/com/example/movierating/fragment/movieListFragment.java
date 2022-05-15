@@ -76,7 +76,7 @@ public class movieListFragment extends Fragment {
         }
 
 
-        List<Movie> listMovie = d.getAllStudents();
+        List<Movie> listMovie = d.getAllMoive();
         System.out.println(listMovie.toString());
 
         movieListAdapter movieListAdapter = new movieListAdapter(getActivity(), R.layout.activity_item_movie_list, listMovie);

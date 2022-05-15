@@ -49,7 +49,7 @@ public class searchFragment extends Fragment {
         idListView = view.findViewById(R.id.idmovielistview2);
         db_movie = DB_Movie.getInMemoryDatabase(getContext());
         DatabaseHandler d = new DatabaseHandler(getContext());
-        List<Movie>  movies = d.getAllStudents();
+        List<Movie>  movies = d.getAllMoive();
 
         movieListAdapter movieListAdapter = new movieListAdapter(getActivity(),R.layout.activity_item_movie_list, movies);
         movieListAdapter.setFilterBySearch("KoCoPhomAsdw");

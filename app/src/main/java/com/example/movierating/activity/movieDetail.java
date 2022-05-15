@@ -13,8 +13,13 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
 import com.example.movierating.R;
 import com.example.movierating.adapter.CommentAdapter;
+import com.example.movierating.adapter.movieListAdapter;
+import com.example.movierating.database.DatabaseHandler;
+import com.example.movierating.entity.Movie;
 import com.example.movierating.entity.Rate;
 import com.example.movierating.other.ImageLoadTask;
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -36,7 +41,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
-    private DatabaseReference mDatabase;
+    private DatabaseReference mDatabase, mDatabaseMovie;
     private FirebaseAuth mAuth;
     YouTubePlayerView youTubePlayerView;
     TextView tvwName, tvwYear, tvwDescription, tvwrating;
@@ -48,6 +53,7 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
     int idMovie;
     private ArrayList<Rate> listcm;
     private ListView idListView;
+    double ratingtemp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +61,7 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
         setContentView(R.layout.fragment_movie_detail);
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Review");
+        mDatabaseMovie = FirebaseDatabase.getInstance().getReference("Movies");
         mAuth = FirebaseAuth.getInstance();
         tvwName = findViewById(R.id.tvwName_Detail);
         tvwDescription = findViewById(R.id.tvwDescription_Detail);
@@ -64,7 +71,7 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
 
 
         Intent i = getIntent();
-        idMovie = i.getIntExtra("id",0);
+        idMovie = i.getIntExtra("id", 0);
         String name = i.getStringExtra("name");
         String description = i.getStringExtra("description");
         double rating = i.getDoubleExtra("rating", 0);
@@ -96,7 +103,7 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
         btnCM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(Login.firebaseUser!=null){
+                if (Login.firebaseUser != null) {
                     Dialog dialog = new Dialog(movieDetail.this);
                     dialog.setTitle("Rating");
                     dialog.setContentView(R.layout.activity_custom_dialog_rating);
@@ -105,7 +112,7 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
                     rt.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
                         @Override
                         public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-                            if(v<1.0f){
+                            if (v < 1.0f) {
 
                                 ratingBar.setRating(1.0f);
                             }
@@ -118,48 +125,72 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
                         public void onClick(View view) {
                             //Day du lieu len firebase
                             mDatabase.child(String.valueOf(idMovie)).child(mAuth.getCurrentUser().getUid())
-                                    .setValue(new Rate(idMovie,rt.getRating(),editCMT.getText().toString(),mAuth.getCurrentUser().getEmail()));
-                                    dialog.dismiss();
+                                    .setValue(new Rate(idMovie, rt.getRating(), editCMT.getText().toString(), mAuth.getCurrentUser().getEmail()));
+                            dialog.dismiss();
+                            ratingtemp = 0;
+                            mDatabase.child(String.valueOf(idMovie))
+                                    .addListenerForSingleValueEvent(new ValueEventListener() {
 
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            for (DataSnapshot dataSnapshot : snapshot.getChildren())
+                                                ratingtemp += dataSnapshot.child("rating").getValue(Double.class);
+                                            mDatabaseMovie.child(String.valueOf(idMovie)).child("rating")
+                                                    .setValue(ratingtemp / snapshot.getChildrenCount());
+
+                                            double r = ratingtemp / snapshot.getChildrenCount();
+                                            DatabaseHandler d = new DatabaseHandler(getBaseContext());
+                                            d.setRating(idMovie, r);
+
+                                            tvwrating.setText(String.valueOf(r));
+
+                                            
+
+
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
                         }
 
 
                     });
 
-                } else{
+                } else {
                     //neu chua login thi login
-                    Intent i = new Intent(getBaseContext(),MainForLogin.class);
+                    Intent i = new Intent(getBaseContext(), MainForLogin.class);
                     startActivity(i);
                 }
             }
         });
 
 
-
     }
 
 
-
-    public  void laydc(){
+    public void laydc() {
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                    GenericTypeIndicator<HashMap<String, Rate>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, Rate>>() {};
-                    Map<String, Rate> objectHashMap = dataSnapshot.child(String.valueOf(idMovie)).getValue(objectsGTypeInd);
+                GenericTypeIndicator<HashMap<String, Rate>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, Rate>>() {
+                };
+                Map<String, Rate> objectHashMap = dataSnapshot.child(String.valueOf(idMovie)).getValue(objectsGTypeInd);
 
-                    try {
-                        Set<Map.Entry<String, Rate>> setHashMap = objectHashMap.entrySet();
-                        for (Map.Entry<String,Rate> i:setHashMap){
-                            System.out.println(i.getKey()+"   -->   "+i.getValue());
-                            Rate rt = i.getValue();
-                            listcm.add(rt);
-                        }
-                    }catch (Exception ex){
-                        System.out.println(ex);
+                try {
+                    Set<Map.Entry<String, Rate>> setHashMap = objectHashMap.entrySet();
+                    for (Map.Entry<String, Rate> i : setHashMap) {
+                        System.out.println(i.getKey() + "   -->   " + i.getValue());
+                        Rate rt = i.getValue();
+                        listcm.add(rt);
                     }
-
+                } catch (Exception ex) {
+                    System.out.println(ex);
+                }
 
 
             }

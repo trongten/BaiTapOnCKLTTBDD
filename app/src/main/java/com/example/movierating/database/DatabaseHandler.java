@@ -60,7 +60,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public List<Movie> getAllStudents() {
+    public List<Movie> getAllMoive() {
         List<Movie>  studentList = new ArrayList<>();
         String query = "SELECT * FROM " + TABLE_NAME;
 
@@ -75,6 +75,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
         return studentList;
     }
+    public void setRating(int id, double rating){
+        SQLiteDatabase db = this.getWritableDatabase();
 
+        ContentValues values = new ContentValues();
+        values.put(KEY_RATING,rating);
+        // updating row
+         db.update(TABLE_NAME, values, KEY_ID + " = ?",
+                new String[]{String.valueOf(id)});
+    }
 
 }

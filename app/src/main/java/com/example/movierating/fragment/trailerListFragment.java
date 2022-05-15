@@ -43,8 +43,8 @@ public class trailerListFragment extends Fragment {
         idListView = view.findViewById(R.id.idmovielistview);
 
         DatabaseHandler d = new DatabaseHandler(getContext());
-        if (!d.getAllStudents().isEmpty()) {
-            movies = d.getAllStudents();
+        if (!d.getAllMoive().isEmpty()) {
+            movies = d.getAllMoive();
         }
 
         movieListAdapter movieListAdapter = new movieListAdapter(getActivity(), R.layout.activity_item_trailer_list, movies);
