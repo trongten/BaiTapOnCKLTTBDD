@@ -24,14 +24,18 @@
 
         <TextView
             android:id="@+id/tvwName_itemMovieList"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
             android:text="TextView"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/idImgMovie"
             app:layout_constraintTop_toTopOf="@+id/idImgMovie" />
 

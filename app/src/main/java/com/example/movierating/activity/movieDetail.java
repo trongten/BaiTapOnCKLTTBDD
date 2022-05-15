@@ -34,6 +34,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -74,7 +75,10 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
         idMovie = i.getIntExtra("id", 0);
         String name = i.getStringExtra("name");
         String description = i.getStringExtra("description");
-        double rating = i.getDoubleExtra("rating", 0);
+        double myrate = i.getDoubleExtra("rating", 0);
+        DecimalFormat format = new DecimalFormat("#.#");
+        String rating = format.format(myrate);
+
         trailer = i.getStringExtra("trailer");
         String img = i.getStringExtra("img");
         int year = i.getIntExtra("year", 0);
@@ -98,7 +102,19 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
 
         youTubePlayerView = findViewById(R.id.vidTrialer);
         youTubePlayerView.initialize(API_KEY, this);
+        mDatabase.child(String.valueOf(idMovie))
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        TextView tvwNumComments = findViewById(R.id.tvwNumberOfComments);
+                        tvwNumComments.setText(" "+String.valueOf(snapshot.getChildrenCount()));
+                    }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
         btnCM = findViewById(R.id.btnComment);
         btnCM.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,10 +158,7 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
                                             DatabaseHandler d = new DatabaseHandler(getBaseContext());
                                             d.setRating(idMovie, r);
 
-                                            tvwrating.setText(String.valueOf(r));
-
-                                            
-
+                                            tvwrating.setText(String.valueOf(format.format(r)));
 
                                         }
 

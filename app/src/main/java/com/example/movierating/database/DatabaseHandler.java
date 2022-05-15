@@ -44,17 +44,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void add(Movie student) {
+    public void add(Movie movie) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_ID,student.getId());
-        values.put(KEY_NAME, student.getMovieName());
-        values.put(KEY_DES, student.getDescription());
-        values.put(KEY_TRAILER, student.getLinkTrailer());
-        values.put(KEY_IMG, student.getLinkImg());
-        values.put(KEY_RATING, student.getRating());
-        values.put(KEY_YEAR, student.getYear());
+        values.put(KEY_ID,movie.getId());
+        values.put(KEY_NAME, movie.getMovieName());
+        values.put(KEY_DES, movie.getDescription());
+        values.put(KEY_TRAILER, movie.getLinkTrailer());
+        values.put(KEY_IMG, movie.getLinkImg());
+        values.put(KEY_RATING, movie.getRating());
+        values.put(KEY_YEAR, movie.getYear());
 
         db.insert(TABLE_NAME, null, values);
         db.close();
@@ -85,4 +85,23 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 new String[]{String.valueOf(id)});
     }
 
+    public void updateMovie(Movie movie) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME, movie.getMovieName());
+        values.put(KEY_DES, movie.getDescription());
+        values.put(KEY_TRAILER, movie.getLinkTrailer());
+        values.put(KEY_IMG, movie.getLinkImg());
+        values.put(KEY_RATING, movie.getRating());
+        values.put(KEY_YEAR, movie.getYear());
+
+        db.update(TABLE_NAME, values, KEY_ID + " = ?", new String[] { String.valueOf(movie.getId()) });
+        db.close();
+    }
+
+    public void deleteMovie(Movie movie) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME, KEY_ID + " = ?", new String[] { String.valueOf(movie.getId()) });
+        db.close();
+    }
 }

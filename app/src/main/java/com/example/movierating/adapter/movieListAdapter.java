@@ -15,6 +15,8 @@ import com.example.movierating.activity.movieDetail;
 import com.example.movierating.entity.Movie;
 import com.example.movierating.other.ImageLoadTask;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,7 +82,7 @@ public class movieListAdapter extends BaseAdapter {
                 i.putExtra("id",movie.getId());
                 i.putExtra("name", movie.getMovieName());
                 i.putExtra("description", movie.getDescription());
-                i.putExtra("rating", movie.getRating());
+                i.putExtra("rating",movie.getRating());
                 i.putExtra("img", movie.getLinkImg());
                 i.putExtra("trailer", movie.getLinkTrailer());
                 i.putExtra("year", movie.getYear());
