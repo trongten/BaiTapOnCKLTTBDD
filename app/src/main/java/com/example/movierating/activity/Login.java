@@ -39,7 +39,7 @@ public class Login extends AppCompatActivity {
         tvQuenmatkhau = (TextView) findViewById(R.id.tvQuenmatkhau);
         tvregister = (TextView) findViewById(R.id.tvregister);
         btnLogin = (Button) findViewById(R.id.btn_Login_Login);
-
+        btnLogout = findViewById(R.id.btnLogout);
         firebaseUser=mAuth.getCurrentUser();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +51,7 @@ public class Login extends AppCompatActivity {
         });
         //-----==============---------//
         if(firebaseUser==null)
-            btnLogout.setVisibility(View.INVISIBLE);
+            btnLogout.setVisibility(View.GONE);
         else
             btnLogout.setVisibility(View.VISIBLE);
 
@@ -59,6 +59,8 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mAuth.signOut();
+
+                startActivity(new Intent(Login.this, movieList.class));
             }
         });
         //-----==============---------//
