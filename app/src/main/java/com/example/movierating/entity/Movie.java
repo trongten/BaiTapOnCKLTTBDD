@@ -55,7 +55,7 @@ public class Movie {
 
     @Ignore
 
-    public Movie(String description,int id,String linkImg,String linkTrailer,String movieName,    Double rating, int year) {
+    public Movie(String description,int id,String linkImg,String linkTrailer,String movieName,Double rating, int year) {
         this.id=id;
         this.movieName = movieName;
         this.description = description;

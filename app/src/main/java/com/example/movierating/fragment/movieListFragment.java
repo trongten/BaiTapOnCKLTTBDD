@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import com.example.movierating.R;
 import com.example.movierating.adapter.movieListAdapter;
 import com.example.movierating.database.DB_Movie;
+import com.example.movierating.database.DatabaseHandler;
 import com.example.movierating.entity.Movie;
 import com.example.movierating.entity.Rate;
 import com.google.firebase.database.DataSnapshot;
@@ -54,14 +55,15 @@ public class movieListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_movie_list, container, false);
         idListView = view.findViewById(R.id.idmovielistview);
         db_movie = DB_Movie.getInMemoryDatabase(getContext());
-
+        DatabaseHandler d = new DatabaseHandler(getContext());
         try {
             mDatabase.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
                         Movie c = postSnapshot.getValue(Movie.class);
-                        db_movie.dao_movie().insertMovie(c);
+
+                        d.add(c);
                     }
                 }
 
@@ -75,7 +77,7 @@ public class movieListFragment extends Fragment {
         }
 
 
-        List<Movie> listMovie = db_movie.dao_movie().findAllMovies();
+        List<Movie> listMovie = d.getAllStudents();
         System.out.println(listMovie.toString());
 
         movieListAdapter movieListAdapter = new movieListAdapter(getActivity(), R.layout.activity_item_movie_list, listMovie);
