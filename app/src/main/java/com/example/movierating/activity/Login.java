@@ -26,7 +26,7 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     EditText edTaiKhoan;
     EditText edPass;
-    Button btnLogin;
+    Button btnLogin, btnLogout;
     TextView tvQuenmatkhau, tvregister;
     static FirebaseUser firebaseUser;
     @Override
@@ -49,8 +49,19 @@ public class Login extends AppCompatActivity {
                 login(edTaiKhoan.getText().toString(),edPass.getText().toString());
             }
         });
+        //-----==============---------//
+        if(firebaseUser==null)
+            btnLogout.setVisibility(View.INVISIBLE);
+        else
+            btnLogout.setVisibility(View.VISIBLE);
 
-
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAuth.signOut();
+            }
+        });
+        //-----==============---------//
         tvregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
