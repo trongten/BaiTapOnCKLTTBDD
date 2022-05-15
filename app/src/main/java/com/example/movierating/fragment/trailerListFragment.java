@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import com.example.movierating.R;
 import com.example.movierating.adapter.movieListAdapter;
 import com.example.movierating.database.DB_Movie;
+import com.example.movierating.database.DatabaseHandler;
 import com.example.movierating.entity.Movie;
 
 import java.util.List;
@@ -41,9 +42,9 @@ public class trailerListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_trailer_list, container, false);
         idListView = view.findViewById(R.id.idmovielistview);
 
-        db_movie = DB_Movie.getInMemoryDatabase(getContext());
-        if (!db_movie.dao_movie().findAllMovies().isEmpty()) {
-            movies = db_movie.dao_movie().findAllMovies();
+        DatabaseHandler d = new DatabaseHandler(getContext());
+        if (!d.getAllStudents().isEmpty()) {
+            movies = d.getAllStudents();
         }
 
         movieListAdapter movieListAdapter = new movieListAdapter(getActivity(), R.layout.activity_item_trailer_list, movies);

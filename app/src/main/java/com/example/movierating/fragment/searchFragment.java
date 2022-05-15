@@ -16,6 +16,7 @@ import androidx.lifecycle.LiveData;
 import com.example.movierating.R;
 import com.example.movierating.adapter.movieListAdapter;
 import com.example.movierating.database.DB_Movie;
+import com.example.movierating.database.DatabaseHandler;
 import com.example.movierating.entity.Movie;
 
 import java.util.ArrayList;
@@ -47,7 +48,8 @@ public class searchFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         idListView = view.findViewById(R.id.idmovielistview2);
         db_movie = DB_Movie.getInMemoryDatabase(getContext());
-        List<Movie>  movies = db_movie.dao_movie().findAllMovies();
+        DatabaseHandler d = new DatabaseHandler(getContext());
+        List<Movie>  movies = d.getAllStudents();
 
         movieListAdapter movieListAdapter = new movieListAdapter(getActivity(),R.layout.activity_item_movie_list, movies);
         movieListAdapter.setFilterBySearch("KoCoPhomAsdw");

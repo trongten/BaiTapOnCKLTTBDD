@@ -54,7 +54,6 @@ public class movieListFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_movie_list, container, false);
         idListView = view.findViewById(R.id.idmovielistview);
-        db_movie = DB_Movie.getInMemoryDatabase(getContext());
         DatabaseHandler d = new DatabaseHandler(getContext());
         try {
             mDatabase.addValueEventListener(new ValueEventListener() {
