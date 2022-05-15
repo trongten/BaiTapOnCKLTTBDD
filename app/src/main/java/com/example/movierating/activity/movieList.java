@@ -32,7 +32,7 @@ public class movieList extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         movies = new ArrayList<>();
 
-        db_movie = DB_Movie.getInMemoryDatabase(getApplicationContext());
+        db_movie = DB_Movie.getInMemoryDatabase(getBaseContext());
         db_movie.dao_movie().deleteAll();
         movies = db_movie.dao_movie().findAllMovies();
 

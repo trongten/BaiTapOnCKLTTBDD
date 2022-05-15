@@ -54,6 +54,16 @@ public class Movie {
     }
 
     @Ignore
+
+    public Movie(int id,String movieName, String description, String linkTrailer, String linkImg, Double rating, int year) {
+        this.id=id;
+        this.movieName = movieName;
+        this.description = description;
+        this.linkTrailer = linkTrailer;
+        this.linkImg = linkImg;
+        this.rating = rating;
+        this.year = year;
+    }
     public Movie(String movieName, String description, String linkTrailer, String linkImg, Double rating, int year) {
         this.movieName = movieName;
         this.description = description;

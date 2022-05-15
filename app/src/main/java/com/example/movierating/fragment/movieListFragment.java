@@ -54,7 +54,7 @@ public class movieListFragment extends Fragment {
     private void createData() {
         db_movie.dao_movie().deleteAll();
         db_movie.dao_movie().insertMovie(
-                new Movie("Moon Knight", "Steven Grant discovers he's been granted the powers of an Egyptian moon god. But he soon finds out that these newfound powers can be both a blessing and a curse to his troubled life.",
+                new Movie(10,"Moon Knight", "Steven Grant discovers he's been granted the powers of an Egyptian moon god. But he soon finds out that these newfound powers can be both a blessing and a curse to his troubled life.",
                         "x7Krla_UxRg",
                         "https://m.media-amazon.com/images/M/MV5BYTc5OWNhYjktMThlOS00ODUxLTgwNDQtZjdjYjkyM2IwZTZlXkEyXkFqcGdeQXVyNTA3MTU2MjE@._V1_.jpg",
                         4.9,

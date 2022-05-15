@@ -77,6 +77,7 @@ public class movieListAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(context, movieDetail.class);
+                i.putExtra("id",movie.getId());
                 i.putExtra("name", movie.getMovieName());
                 i.putExtra("description", movie.getDescription());
                 i.putExtra("rating", movie.getRating());
