@@ -34,6 +34,9 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
         mAuth = FirebaseAuth.getInstance();
+        TextView tt = findViewById(R.id.textView2);
+        TextView mk = findViewById(R.id.textView4);
+        TextView tt2 = findViewById(R.id.textView3);
         edTaiKhoan = (EditText) findViewById(R.id.ed_Login_Taikhoan);
         edPass = (EditText) findViewById(R.id.ed_Login_Password);
         tvQuenmatkhau = (TextView) findViewById(R.id.tvQuenmatkhau);
@@ -50,11 +53,23 @@ public class Login extends AppCompatActivity {
             }
         });
         //-----==============---------//
+
+
+
         if(firebaseUser==null)
             btnLogout.setVisibility(View.GONE);
-        else
+        else {
             btnLogout.setVisibility(View.VISIBLE);
-
+            edTaiKhoan.setVisibility(View.GONE);
+            edPass.setVisibility(View.GONE);
+            tvQuenmatkhau.setVisibility(View.GONE);
+            tvregister.setVisibility(View.GONE);
+            btnLogin.setVisibility(View.GONE);
+            tt.setText("Đăng xuất");
+            mk.setVisibility(View.GONE);
+            tt2.setText(mAuth.getCurrentUser().getEmail());
+            tt2.setTextSize(24);
+        }
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
