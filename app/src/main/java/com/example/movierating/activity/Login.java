@@ -51,7 +51,9 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 if (DangNhap())
                     login(edTaiKhoan.getText().toString(), edPass.getText().toString());
+                    firebaseUser = mAuth.getCurrentUser();
             }
+
         });
 
         tvQuenmatkhau.setOnClickListener(new View.OnClickListener() {

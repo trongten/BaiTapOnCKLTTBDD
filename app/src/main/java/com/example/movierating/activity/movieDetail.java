@@ -123,7 +123,7 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (Login.firebaseUser != null) {
+                if (mAuth.getCurrentUser() != null) {
                     Dialog dialog = new Dialog(movieDetail.this);
                     dialog.setTitle("Rating");
                     dialog.setContentView(R.layout.activity_custom_dialog_rating);
