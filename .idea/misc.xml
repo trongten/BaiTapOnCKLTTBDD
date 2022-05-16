@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/BaiTapOnCKLTTBDD/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/BaiTapOnCKLTTBDD/app/src/main/res/layout/forgotpassword.xml" value="0.264" />
+        <entry key="..\:/BaiTapOnCKLTTBDD/app/src/main/res/layout/login.xml" value="0.25" />
+        <entry key="..\:/BaiTapOnCKLTTBDD/app/src/main/res/layout/logout.xml" value="0.2" />
+        <entry key="..\:/BaiTapOnCKLTTBDD/app/src/main/res/layout/register.xml" value="0.25" />
         <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2235" />
         <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/drawable/button_gradient_background_yellow.xml" value="0.2235" />
         <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2235" />
@@ -19,7 +24,6 @@
         <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/layout/fragment_trailer_list.xml" value="0.21666666666666667" />
         <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/layout/login.xml" value="0.264" />
         <entry key="..\:/LapTrinhAndroid/BaiTapOnCKLTTBDD/app/src/main/res/layout/register.xml" value="0.12708333333333333" />
-        <entry key="..\:/Users/trong/AndroidStudioProjects/BaiTapOnCKLTTBDD/app/src/main/res/layout/login.xml" value="0.264" />
         <entry key="..\:/Users/trong/AndroidStudioProjects/MovieRating/BaiTapOnCKLTTBDD/app/src/main/res/layout/activity_comment_detail.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/trong/AndroidStudioProjects/MovieRating/BaiTapOnCKLTTBDD/app/src/main/res/layout/activity_custom_dialog_rating.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/trong/AndroidStudioProjects/MovieRating/BaiTapOnCKLTTBDD/app/src/main/res/layout/activity_item_movie_list.xml" value="0.25416666666666665" />
