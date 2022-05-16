@@ -15,7 +15,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieRating">
         <activity
+            android:name=".activity.EmailConfirm"
+            android:exported="false" />
+        <activity
             android:name=".activity.Comment_Detail"
+            android:exported="false" />
+        <activity
+            android:name=".activity.Logout"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ForgotPassword"
             android:exported="false" />
         <activity
             android:name=".activity.CustomDialogRating"

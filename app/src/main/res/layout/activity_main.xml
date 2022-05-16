@@ -11,20 +11,21 @@
         android:id="@+id/home"
         android:layout_width="44dp"
         android:layout_height="42dp"
-        android:layout_marginStart="44dp"
+        android:layout_marginStart="28dp"
 
-        android:layout_marginBottom="8dp"
-        android:src="@drawable/img"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView" />
+        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView"
+        app:srcCompat="@drawable/home_select"
+        tools:srcCompat="@drawable/home_select" />
 
     <ImageView
         android:id="@+id/search"
         android:layout_width="42dp"
         android:layout_height="42dp"
 
-        android:src="@drawable/iconsearch"
+        android:layout_marginBottom="1dp"
+        android:src="@drawable/search"
         app:layout_constraintBottom_toBottomOf="@+id/home"
         app:layout_constraintEnd_toStartOf="@+id/trailer"
         app:layout_constraintHorizontal_bias="0.472"
@@ -37,21 +38,22 @@
         android:layout_height="42dp"
         android:layout_marginEnd="44dp"
 
-        android:src="@drawable/icontrailer"
-        app:layout_constraintBottom_toBottomOf="@+id/home"
+        android:src="@drawable/play"
+        app:layout_constraintBottom_toBottomOf="@+id/search"
         app:layout_constraintEnd_toStartOf="@+id/user"
         app:layout_constraintTop_toTopOf="@+id/home" />
 
     <ImageView
         android:id="@+id/user"
-        android:layout_width="38dp"
-        android:layout_height="36dp"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
         android:layout_marginEnd="28dp"
 
-        android:src="@drawable/iconuser"
-        app:layout_constraintBottom_toBottomOf="@+id/home"
+        android:src="@drawable/user"
+        app:layout_constraintBottom_toBottomOf="@+id/trailer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/home" />
+        app:layout_constraintTop_toTopOf="@+id/trailer"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/dsa"
@@ -72,7 +74,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="48dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="76dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.384"
@@ -80,5 +82,49 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout="@layout/activity_item_movie_list" />
+
+    <TextView
+        android:id="@+id/tvwTitle_IconHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        android:textColor="#FFC107"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/home"
+        app:layout_constraintStart_toStartOf="@+id/home" />
+
+    <TextView
+        android:id="@+id/tvwTitle_IconSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:textColor="#FFC107"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/search"
+        app:layout_constraintStart_toStartOf="@+id/search" />
+
+    <TextView
+        android:id="@+id/tvwTitle_IconTrailer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trailer"
+        android:textColor="#FFC107"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/trailer"
+        app:layout_constraintStart_toStartOf="@+id/trailer" />
+
+    <TextView
+        android:id="@+id/tvwTitle_IconUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User"
+        android:textColor="#FFC107"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/user"
+        app:layout_constraintStart_toStartOf="@+id/user" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="57dp"
         android:text="Đăng Xuất"
         android:textColor="#FFFFFF"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_logout_email"
+        android:id="@+id/tv_email_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -39,9 +39,12 @@
         android:layout_width="173dp"
         android:layout_height="62dp"
         android:layout_marginTop="64dp"
-        android:backgroundTint="#FFC107"
+        android:background="#F44336"
+        android:backgroundTint="#F44336"
         android:text="Log out"
-        app:layout_constraintEnd_toEndOf="@+id/tv_logout_email"
-        app:layout_constraintStart_toStartOf="@+id/tv_logout_email"
-        app:layout_constraintTop_toBottomOf="@+id/tv_logout_email" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/tv_email_logout"
+        app:layout_constraintStart_toStartOf="@+id/tv_email_logout"
+        app:layout_constraintTop_toBottomOf="@+id/tv_email_logout"
+        tools:ignore="TextContrastCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,13 +12,13 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:fillViewport="true"
+        android:nestedScrollingEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_weight="1"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:fontFamily="sans-serif-thin"
-                    android:text="TextView"
+                    android:text="Unknown"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="@color/white"
                     android:textStyle="bold"
@@ -47,15 +47,14 @@
                     android:id="@+id/tvwName_Detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
                     android:layout_marginTop="16dp"
                     android:fontFamily="sans-serif-thin"
-                    android:text="TextView"
+                    android:text="Unknown"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/iwBack_detail"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.constraintlayout.widget.Guideline
@@ -116,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:text="TextView"
+                    android:text="Unknown"
                     android:textColor="#C4C4C4C4"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/textView"
@@ -126,7 +125,7 @@
                     android:id="@+id/tvwRating_Detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text="0"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -157,8 +156,7 @@
                 <EditText
                     android:id="@+id/edtYourComment_Detail"
                     android:layout_width="354dp"
-                    android:layout_height="94dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_height="60dp"
                     android:background="@color/white"
                     android:ems="10"
                     android:focusable="auto"
@@ -166,7 +164,6 @@
                     android:hint="Comments Here"
                     android:inputType="textMultiLine"
                     android:textColor="#000000"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/btnComment"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/textView5"
@@ -189,13 +186,13 @@
                     android:layout_height="0dp"
                     android:background="#FFC107"
                     android:minWidth="48dp"
-                    android:src="@drawable/upload"
+                    android:src="@android:drawable/ic_menu_send"
                     app:layout_constraintBottom_toBottomOf="@+id/edtYourComment_Detail"
                     app:layout_constraintEnd_toEndOf="@+id/tvwDescription_Detail"
                     app:layout_constraintStart_toEndOf="@+id/edtYourComment_Detail"
                     app:layout_constraintTop_toTopOf="@+id/edtYourComment_Detail"
                     tools:ignore="SpeakableTextPresentCheck"
-                    tools:src="@drawable/upload" />
+                    tools:src="@android:drawable/ic_menu_send" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -221,21 +218,34 @@
                         android:id="@+id/tvwNumberOfComments"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView"
+                        android:text="0"
                         android:textColor="#FFFFFF"
                         app:layout_constraintBottom_toBottomOf="@+id/textView11"
                         app:layout_constraintStart_toEndOf="@+id/textView11"
                         app:layout_constraintTop_toTopOf="@+id/textView11" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageButton
+                    android:id="@+id/iwBack_detail"
+                    android:layout_width="48dp"
+                    android:layout_height="30dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="back button"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/back"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvwYear_Detail"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvwName_Detail"
+                    tools:srcCompat="@drawable/back" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ListView
                 android:id="@+id/listComments_Detail"
                 android:layout_width="match_parent"
-                android:layout_height="700dp"
+                android:layout_height="300dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="10dp"
-                android:layout_weight="1"
+                android:nestedScrollingEnabled="true"
                 android:scrollbarAlwaysDrawHorizontalTrack="true"
                 android:scrollbars="vertical"
                 app:layout_constraintEnd_toEndOf="parent"

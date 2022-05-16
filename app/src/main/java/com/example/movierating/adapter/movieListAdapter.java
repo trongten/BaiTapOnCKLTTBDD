@@ -14,9 +14,10 @@ import com.example.movierating.R;
 import com.example.movierating.activity.movieDetail;
 import com.example.movierating.entity.Movie;
 import com.example.movierating.other.ImageLoadTask;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubeThumbnailLoader;
+import com.google.android.youtube.player.YouTubeThumbnailView;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class movieListAdapter extends BaseAdapter {
     List<Movie> arrayList;
     List<Movie> arrayFilter;
     private int positionSelect = -1;
+    String API_KEY = "AIzaSyDekrO-eHzhP4bfsRdFDuD_87ccxiXhxbU";
 
     public movieListAdapter(Context context, int layout, List<Movie> arrayList) {
         this.context = context;
@@ -86,6 +88,7 @@ public class movieListAdapter extends BaseAdapter {
                 i.putExtra("img", movie.getLinkImg());
                 i.putExtra("trailer", movie.getLinkTrailer());
                 i.putExtra("year", movie.getYear());
+
                 context.startActivity(i);
             }
         });

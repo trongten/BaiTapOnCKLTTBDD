@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
+import androidx.transition.TransitionInflater;
 
 import com.example.movierating.R;
 import com.example.movierating.adapter.movieListAdapter;
-import com.example.movierating.database.DB_Movie;
 import com.example.movierating.database.DatabaseHandler;
 import com.example.movierating.entity.Movie;
 
@@ -24,13 +24,14 @@ import java.util.List;
 public class trailerListFragment extends Fragment {
 
     private ListView idListView;
-    private DB_Movie db_movie;
     private List<Movie> movies;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        TransitionInflater inflater = TransitionInflater.from(requireContext());
+        setEnterTransition(inflater.inflateTransition(R.transition.slide_left));
+        setExitTransition(inflater.inflateTransition(R.transition.slide_right));
     }
 
     @Override

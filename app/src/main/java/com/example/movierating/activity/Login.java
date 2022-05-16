@@ -29,6 +29,7 @@ public class Login extends AppCompatActivity {
     Button btnLogin, btnLogout;
     TextView tvQuenmatkhau, tvregister;
     static FirebaseUser firebaseUser;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,70 +43,49 @@ public class Login extends AppCompatActivity {
         tvQuenmatkhau = (TextView) findViewById(R.id.tvQuenmatkhau);
         tvregister = (TextView) findViewById(R.id.tvregister);
         btnLogin = (Button) findViewById(R.id.btn_Login_Login);
-        btnLogout = findViewById(R.id.btnLogout);
-        firebaseUser=mAuth.getCurrentUser();
+
+        firebaseUser = mAuth.getCurrentUser();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DangNhap();
-                login(edTaiKhoan.getText().toString(),edPass.getText().toString());
+                if (DangNhap())
+                    login(edTaiKhoan.getText().toString(), edPass.getText().toString());
             }
         });
-        //-----==============---------//
 
-
-
-        if(firebaseUser==null)
-            btnLogout.setVisibility(View.GONE);
-        else {
-            btnLogout.setVisibility(View.VISIBLE);
-            edTaiKhoan.setVisibility(View.GONE);
-            edPass.setVisibility(View.GONE);
-            tvQuenmatkhau.setVisibility(View.GONE);
-            tvregister.setVisibility(View.GONE);
-            btnLogin.setVisibility(View.GONE);
-            tt.setText("Đăng xuất");
-            mk.setVisibility(View.GONE);
-            tt2.setText(mAuth.getCurrentUser().getEmail());
-            tt2.setTextSize(24);
-        }
-        btnLogout.setOnClickListener(new View.OnClickListener() {
+        tvQuenmatkhau.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mAuth.signOut();
-
-                startActivity(new Intent(Login.this, movieList.class));
+                startActivity(new Intent(Login.this, EmailConfirm.class));
             }
         });
-        //-----==============---------//
         tvregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getBaseContext(),Register.class);
+                Intent i = new Intent(getBaseContext(), Register.class);
                 startActivity(i);
             }
         });
     }
 
-    private void DangNhap() {
+    private boolean DangNhap() {
         String taikhoan = edTaiKhoan.getText().toString().trim();
         String pass = edPass.getText().toString().trim();
 
         if (taikhoan.isEmpty()) {
             edTaiKhoan.setError("Tai Khoan must be filled");
             edTaiKhoan.requestFocus();
-            return;
-        }
-        if (pass.isEmpty()) {
+            return false;
+        } else if (pass.isEmpty()) {
             edPass.setError("Password must be filled");
             edPass.requestFocus();
-            return;
+            return false;
         }
-
+        return true;
     }
 
-    public void login(String email,String password){
+    public void login(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -115,7 +95,7 @@ public class Login extends AppCompatActivity {
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
-                            Intent i  = new Intent(getBaseContext(),movieList.class);
+                            Intent i = new Intent(getBaseContext(), movieList.class);
                             startActivity(i);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -130,16 +110,14 @@ public class Login extends AppCompatActivity {
 
 
     private void updateUI(FirebaseUser user) {
-        if(user != null){
+        if (user != null) {
             Toast.makeText(Login.this, "signInWithEmail:success",
                     Toast.LENGTH_SHORT).show();
-        }
-        else{
+        } else {
             Toast.makeText(Login.this, "Authentication failed.",
                     Toast.LENGTH_SHORT).show();
         }
     }
-
 
 
 }

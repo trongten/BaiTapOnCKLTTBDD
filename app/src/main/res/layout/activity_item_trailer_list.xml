@@ -5,13 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:alpha="1"
+    android:background="#000000"
+    android:backgroundTint="#000000"
     tools:context=".activity.itemMovieList">
 
     <View
         android:id="@+id/view"
         android:layout_width="408dp"
         android:layout_height="136dp"
-        android:background="#858585"
+        android:background="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,7 +21,7 @@
     <ImageView
         android:id="@+id/idImgMovie"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:alpha="0.5"
         android:scaleX="5"
         android:scaleY="5"
@@ -50,6 +52,7 @@
         android:id="@+id/tvNam_itemMovieList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
         android:gravity="center"
         android:text="TextView"
         android:textColor="#FFFFFF"
@@ -84,5 +87,5 @@
         app:layout_constraintHorizontal_bias="0.889"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icontrailer" />
+        app:srcCompat="@drawable/play" />
 </androidx.constraintlayout.widget.ConstraintLayout>

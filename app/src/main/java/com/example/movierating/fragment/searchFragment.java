@@ -10,16 +10,14 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
+import androidx.transition.TransitionInflater;
 
 
 import com.example.movierating.R;
 import com.example.movierating.adapter.movieListAdapter;
-import com.example.movierating.database.DB_Movie;
 import com.example.movierating.database.DatabaseHandler;
 import com.example.movierating.entity.Movie;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -32,11 +30,12 @@ public class searchFragment extends Fragment {
 
     private ListView idListView;
     private EditText te;
-    private DB_Movie db_movie;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        TransitionInflater inflater = TransitionInflater.from(requireContext());
+        setEnterTransition(inflater.inflateTransition(R.transition.slide_left));
+        setExitTransition(inflater.inflateTransition(R.transition.slide_right));
 
     }
 
@@ -47,7 +46,6 @@ public class searchFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         idListView = view.findViewById(R.id.idmovielistview2);
-        db_movie = DB_Movie.getInMemoryDatabase(getContext());
         DatabaseHandler d = new DatabaseHandler(getContext());
 
         List<Movie>  movies = d.getAllMoive();

@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
+import androidx.transition.TransitionInflater;
 
 import com.example.movierating.R;
 import com.example.movierating.adapter.movieListAdapter;
-import com.example.movierating.database.DB_Movie;
 import com.example.movierating.database.DatabaseHandler;
 import com.example.movierating.entity.Movie;
 import com.google.firebase.database.DataSnapshot;
@@ -29,7 +29,6 @@ import java.util.List;
 public class movieListFragment extends Fragment {
 
     private ListView idListView;
-    private DB_Movie db_movie;
     private List<Movie> movies;
     private DatabaseReference mDatabase;
     private List<Movie> movies2;
@@ -37,7 +36,10 @@ public class movieListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        TransitionInflater inflater = TransitionInflater.from(requireContext());
 
+        setEnterTransition(inflater.inflateTransition(R.transition.slide_left));
+        setExitTransition(inflater.inflateTransition(R.transition.slide_right));
     }
 
     @Override
@@ -55,7 +57,6 @@ public class movieListFragment extends Fragment {
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                         Movie c = postSnapshot.getValue(Movie.class);
-
                         boolean flg = false;
                         for (Movie movie : d.getAllMoive()) {
                             if (c.getId()==movie.getId())
@@ -75,10 +76,8 @@ public class movieListFragment extends Fragment {
                 }
             });
         } catch (Exception ex) {
-
+            ex.printStackTrace();
         }
-
-
         List<Movie> listMovie = d.getAllMoive();
         System.out.println(listMovie.toString());
 

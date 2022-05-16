@@ -47,10 +47,11 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
     YouTubePlayerView youTubePlayerView;
     TextView tvwName, tvwYear, tvwDescription, tvwrating;
     ImageView ivImg;
+    ImageButton ivback;
     String API_KEY = "AIzaSyDekrO-eHzhP4bfsRdFDuD_87ccxiXhxbU";
     int REQUEST_VIDEO = 123;
     private String trailer;
-    ImageButton btnCM;
+    ImageButton btnSend;
     int idMovie;
     private ArrayList<Rate> listcm;
     private ListView idListView;
@@ -60,7 +61,6 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_movie_detail);
-
         mDatabase = FirebaseDatabase.getInstance().getReference("Review");
         mDatabaseMovie = FirebaseDatabase.getInstance().getReference("Movies");
         mAuth = FirebaseAuth.getInstance();
@@ -69,7 +69,7 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
         tvwYear = findViewById(R.id.tvwYear_Detail);
         tvwrating = findViewById(R.id.tvwRating_Detail);
         ivImg = findViewById(R.id.imgImg_Detail);
-
+        ivback = findViewById(R.id.iwBack_detail);
 
         Intent i = getIntent();
         idMovie = i.getIntExtra("id", 0);
@@ -115,8 +115,12 @@ public class movieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
 
                     }
                 });
-        btnCM = findViewById(R.id.btnComment);
-        btnCM.setOnClickListener(new View.OnClickListener() {
+        ivback.setOnClickListener(view -> {
+            startActivity(new Intent(movieDetail.this, movieList.class));
+        });
+
+        btnSend = findViewById(R.id.btnComment);
+        btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (Login.firebaseUser != null) {
