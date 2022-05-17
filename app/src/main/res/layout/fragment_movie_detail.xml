@@ -5,6 +5,8 @@
     android:name="com.google.android.youtube.player.YouTubePlayerSupportFragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:focusable="false"
+    android:focusableInTouchMode="true"
     android:background="#343434"
     tools:context=".activity.movieDetail">
 
@@ -28,6 +30,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
+                android:focusable="false"
+                android:focusableInTouchMode="true"
                 android:layout_height="727dp">
 
                 <TextView
@@ -159,7 +163,6 @@
                     android:layout_height="60dp"
                     android:background="@color/white"
                     android:ems="10"
-                    android:focusable="auto"
                     android:gravity="start|top"
                     android:hint="Comments Here"
                     android:inputType="textMultiLine"

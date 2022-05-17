@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="false"
+    android:focusableInTouchMode="true"
     android:background="#020202">
 
     <TextView
@@ -78,6 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:clickable="true"
+        android:minHeight="48dp"
         android:text="quên mật khẩu ?"
         android:textColor="#959595"
         app:layout_constraintEnd_toEndOf="@+id/ed_Login_Password"

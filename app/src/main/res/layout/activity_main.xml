@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
+    android:focusable="false"
+    android:focusableInTouchMode="true"
     tools:context=".activity.movieList">
 
     <ImageView
@@ -80,6 +82,8 @@
         app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:focusable="false"
+        android:focusableInTouchMode="true"
         tools:ignore="MissingConstraints"
         tools:layout="@layout/activity_item_movie_list" />
 
